@@ -30,6 +30,19 @@ input {
     padding: 7px;
 }
 
+.input-fecha {
+  border-radius: 8px;
+  background-color: #fff;
+  height: 28px;
+  padding: 7px;
+  color: #666; /* Color del texto del input */
+}
+
+.input-fecha::placeholder {
+  color: #999;
+  opacity: 1; /* Para que no quede transparente */
+}
+
 header {
   background-color: #091E3F;
   color: white;
@@ -115,6 +128,7 @@ form button:hover {
 .boton-estatus {
     background-color: #0d6efd;
     margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .boton-estatus:hover {

@@ -44,12 +44,12 @@ function RegistroForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input name="numero_guia" placeholder="Número de Guía" onChange={handleChange} value={form.numero_guia} />
+      {/* <input name="numero_guia" placeholder="Número de Guía" onChange={handleChange} value={form.numero_guia} /> */}
       <input name="origen" placeholder="Origen" onChange={handleChange} value={form.origen} />
       <input name="destino" placeholder="Destino" onChange={handleChange} value={form.destino} />
       <input name="destinatario" placeholder="Destinatario" onChange={handleChange} value={form.destinatario} />
-      <input name="fecha" placeholder="Fecha" onChange={handleChange} value={form.fecha} type="date" />
-      <input name="estado_inicial" placeholder="Estado Inicial" onChange={handleChange} value={form.estado_inicial} />
+      <input name="fecha" className="input-fecha" onChange={handleChange} value={form.fecha} type="date" />
+      {/* <input name="estado_inicial" placeholder="Estado Inicial" onChange={handleChange} value={form.estado_inicial} /> */}
       <button type="submit">Registrar guía</button>
     </form>
   );
