@@ -5,6 +5,12 @@
   
 }
 
+.main-container {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Open Sans' ,Arial, sans-serif;
   line-height: 1.6;

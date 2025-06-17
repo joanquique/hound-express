@@ -15,7 +15,7 @@ function App() {
   }, [guias]);
 
   return (
-    <>
+    <div className="main-container">
       <Header />
       <main>
         <section id="inicio">
@@ -44,7 +44,7 @@ function App() {
           <Historial guia={verHistorial} />
         </section>
       </main>
-    </>
+    </div>
   );
 }
 
