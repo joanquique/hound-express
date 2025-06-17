@@ -1,12 +1,11 @@
-import type { Guide } from '../types/Guide';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addGuide } from '../store/guidesSlice';
+import type { AppDispatch } from '../store/store';
 
-interface Props {
-  guias: Guide[];
-  setGuias: React.Dispatch<React.SetStateAction<Guide[]>>;
-}
-
-function RegistroForm({ guias, setGuias }: Props) {
+function RegistroForm() {
+  const dispatch = useDispatch<AppDispatch>();
+  
   const [form, setForm] = useState({
     numero_guia: '',
     origen: '',
@@ -22,14 +21,25 @@ function RegistroForm({ guias, setGuias }: Props) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const nuevaGuia: Guide = {
+    const nuevaGuia = {
       id: crypto.randomUUID(),
-      ...form,
-      estado: 'Pendiente',
+      origen: form.origen,
+      destino: form.destino,
+      destinatario: form.destinatario,
+      fecha: form.fecha,
+      estado: 'Pendiente' as const,
       ultimaActualizacion: new Date().toISOString(),
     };
-    setGuias([...guias, nuevaGuia]);
-    setForm({ numero_guia: '', origen: '', destino: '', destinatario: '', fecha: '', estado_inicial: '' });
+
+    dispatch(addGuide(nuevaGuia));
+    setForm({
+      numero_guia: '',
+      origen: '',
+      destino: '',
+      destinatario: '',
+      fecha: '',
+      estado_inicial: '',
+    });
   };
 
   return (
@@ -39,7 +49,7 @@ function RegistroForm({ guias, setGuias }: Props) {
       <input name="destino" placeholder="Destino" onChange={handleChange} value={form.destino} />
       <input name="destinatario" placeholder="Destinatario" onChange={handleChange} value={form.destinatario} />
       <input name="fecha" placeholder="Fecha" onChange={handleChange} value={form.fecha} type="date" />
-      <input name="estado_inicial" placeholder="Estado Inicial" onChange={handleChange} value={form.estado_inicial} type='select'/>
+      <input name="estado_inicial" placeholder="Estado Inicial" onChange={handleChange} value={form.estado_inicial} />
       <button type="submit">Registrar guía</button>
     </form>
   );

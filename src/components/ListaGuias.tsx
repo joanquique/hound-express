@@ -1,20 +1,18 @@
 import type { Guide } from '../types/Guide';
+import { useSelector, useDispatch } from 'react-redux';
+import type { RootState } from '../store/store';
+import { updateGuideStatus } from '../store/guidesSlice';
 
 interface Props {
-  guias: Guide[];
-  setGuias: React.Dispatch<React.SetStateAction<Guide[]>>;
   onVerHistorial: (guia: Guide) => void;
 }
 
-function ListaGuias({ guias, setGuias, onVerHistorial }: Props) {
+function ListaGuias({ onVerHistorial }: Props) {
+  const guias = useSelector((state: RootState) => state.guides.guias);
+  const dispatch = useDispatch();
+
   const actualizarEstado = (id: string, nuevoEstado: Guide['estado']) => {
-    setGuias(prev =>
-      prev.map(g =>
-        g.id === id
-          ? { ...g, estado: nuevoEstado, ultimaActualizacion: new Date().toISOString() }
-          : g
-      )
-    );
+    dispatch(updateGuideStatus({ id, status: nuevoEstado }));
   };
 
   return (

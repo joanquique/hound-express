@@ -3,16 +3,14 @@ import RegistroForm from './components/RegistroForm';
 import EstadoPanel from './components/EstadoPanel';
 import ListaGuias from './components/ListaGuias';
 import Historial from './components/Historial';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { Guide } from './types/Guide';
+import { useSelector } from 'react-redux';
+import type { RootState } from './store/store';
 
 function App() {
-  const [guias, setGuias] = useState<Guide[]>([]);
+  const guias = useSelector((state: RootState) => state.guides.guias);
   const [verHistorial, setVerHistorial] = useState<Guide | null>(null);
-
-  useEffect(() => {
-    console.log("Guías actualizadas:", guias);
-  }, [guias]);
 
   return (
     <div className="main-container">
@@ -25,7 +23,7 @@ function App() {
 
         <section id="registro">
           <h1 className='encabezado-guias'>Registro de Guías</h1>
-          <RegistroForm guias={guias} setGuias={setGuias} />
+          <RegistroForm />
         </section>
 
         <section id="estado">
@@ -34,9 +32,7 @@ function App() {
 
         <section id="lista">
           <ListaGuias
-            guias={guias}
-            setGuias={setGuias}
-            onVerHistorial={setVerHistorial}
+            onVerHistorial={setVerHistorial} 
           />
         </section>
 
