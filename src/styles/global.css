@@ -109,7 +109,11 @@ form button:hover {
 .boton-estatus {
     background-color: #0d6efd;
     margin-left: 10px;
-    /* height: 20px; */
+}
+
+.boton-estatus:hover {
+    background-color: #091E3F;
+    transition: background-color 0.3s ease;
 }
 
 .resumen-estado {
