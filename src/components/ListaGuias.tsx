@@ -24,9 +24,9 @@ function ListaGuias({ guias, setGuias, onVerHistorial }: Props) {
         {guias.map(guia => (
           <li key={guia.id}>
             <strong>{guia.destinatario}</strong> - Estado: {guia.estado}
-            <button onClick={() => actualizarEstado(guia.id, 'En tránsito')}>En tránsito</button>
-            <button onClick={() => actualizarEstado(guia.id, 'Entregado')}>Entregado</button>
-            <button onClick={() => onVerHistorial(guia)}>Ver historial</button>
+            <button className='boton-estatus' onClick={() => actualizarEstado(guia.id, 'En tránsito')}>En tránsito</button>
+            <button className='boton-estatus' onClick={() => actualizarEstado(guia.id, 'Entregado')}>Entregado</button>
+            <button className='boton-estatus' onClick={() => onVerHistorial(guia)}>Ver historial</button>
           </li>
         ))}
       </ul>

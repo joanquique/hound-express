@@ -106,6 +106,12 @@ form button:hover {
   background-color: #6AC6DE;
 }
 
+.boton-estatus {
+    background-color: #0d6efd;
+    margin-left: 10px;
+    /* height: 20px; */
+}
+
 .resumen-estado {
   display: flex;
   justify-content: space-around;
