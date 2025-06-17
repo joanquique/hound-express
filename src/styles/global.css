@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -9,6 +10,18 @@ body {
   line-height: 1.6;
   background-color: #f8f9fa;
   color: #333;
+}
+
+.encabezado-guias {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+input {
+    border-radius: 8px;
+    background-color: #fff;
+    height: 28px;
+    padding: 7px;
 }
 
 header {
@@ -50,6 +63,7 @@ nav a {
 
 nav a:hover {
   background-color: #6AC6DE;
+  color: #fff;
 }
 
 main {
