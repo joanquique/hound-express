@@ -16,19 +16,37 @@ function ListaGuias({ onVerHistorial }: Props) {
   };
 
   return (
-    <div>
-      <h3>Listado de Guías</h3>
+    <section aria-labelledby="listado-guias-title">
+      <h3 id="listado-guias-title">Listado de Guías</h3>
       <ul>
-        {guias.map(guia => (
+        {guias.map((guia) => (
           <li key={guia.id}>
             <strong>{guia.destinatario}</strong> - Estado: {guia.estado}
-            <button className='boton-estatus' onClick={() => actualizarEstado(guia.id, 'En tránsito')}>En tránsito</button>
-            <button className='boton-estatus' onClick={() => actualizarEstado(guia.id, 'Entregado')}>Entregado</button>
-            <button className='boton-estatus' onClick={() => onVerHistorial(guia)}>Ver historial</button>
+            <button
+              className="boton-estatus"
+              onClick={() => actualizarEstado(guia.id, 'En tránsito')}
+              aria-label={`Marcar guía de ${guia.destinatario} como En tránsito`}
+            >
+              En tránsito
+            </button>
+            <button
+              className="boton-estatus"
+              onClick={() => actualizarEstado(guia.id, 'Entregado')}
+              aria-label={`Marcar guía de ${guia.destinatario} como Entregado`}
+            >
+              Entregado
+            </button>
+            <button
+              className="boton-estatus"
+              onClick={() => onVerHistorial(guia)}
+              aria-label={`Ver historial de la guía de ${guia.destinatario}`}
+            >
+              Ver historial
+            </button>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 

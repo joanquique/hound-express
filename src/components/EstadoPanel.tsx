@@ -6,16 +6,16 @@ interface Props {
 
 function EstadoPanel({ guias }: Props) {
   return (
-    <div>
-      <h3>Estado actual de tus guías</h3>
-      <ul>
+    <section aria-labelledby="estado-titulo">
+      <h3 id="estado-titulo">Estado actual de tus guías</h3>
+      <ul aria-label="Lista de guías de envío">
         {guias.map(guia => (
           <li key={guia.id}>
             {guia.destinatario} - {guia.estado} (última actualización: {new Date(guia.ultimaActualizacion).toLocaleString()})
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 

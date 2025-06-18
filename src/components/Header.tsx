@@ -1,14 +1,18 @@
 export function Header() {
   return (
     <header>
-      <div className="banner">
-        <img className="img-logo" src="./public/logo.png" alt="Logo de la aplicación" />
+      <div className="banner" role="banner">
+        <img
+          className="img-logo"
+          src="./public/logo.png"
+          alt="Logo de la aplicación HoundTrack"
+        />
         <div>
           <h1>HoundTrack</h1>
           <p>Tu envío, siempre bajo control</p>
         </div>
       </div>
-      <nav>
+      <nav aria-label="Menú principal de navegación">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#registro">Registro de Guías</a></li>

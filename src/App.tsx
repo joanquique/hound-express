@@ -40,6 +40,9 @@ function App() {
           <Historial guia={verHistorial} />
         </section>
       </main>
+      <footer>
+        <p>© 2025 HoundTrack. Todos los derechos reservados.</p>
+      </footer>
     </div>
   );
 }

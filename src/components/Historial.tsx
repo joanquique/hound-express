@@ -5,15 +5,20 @@ interface Props {
 }
 
 function Historial({ guia }: Props) {
-  if (!guia) return <p>Selecciona una guía para ver su historial.</p>;
+  if (!guia)
+    return (
+      <p role="alert" aria-live="assertive">
+        Selecciona una guía para ver su historial.
+      </p>
+    );
 
   return (
-    <div>
-      <h3>Historial de {guia.destinatario}</h3>
+    <section aria-labelledby="historial-title">
+      <h3 id="historial-title">Historial de {guia.destinatario}</h3>
       <p>Último estado: {guia.estado}</p>
       <p>Última actualización: {new Date(guia.ultimaActualizacion).toLocaleString()}</p>
       {/* Aquí luego podrías agregar una lista de cambios si usas HistoryEntry */}
-    </div>
+    </section>
   );
 }
 
