@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { Guide } from '../types/Guide';
 
-interface GuidesState {
+export interface GuidesState {
   guias: Guide[];
   historial: Guide | null;
 }

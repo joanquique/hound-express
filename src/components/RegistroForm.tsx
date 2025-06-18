@@ -44,12 +44,22 @@ function RegistroForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <input name="numero_guia" placeholder="Número de Guía" onChange={handleChange} value={form.numero_guia} /> */}
-      <input name="origen" placeholder="Origen" onChange={handleChange} value={form.origen} />
-      <input name="destino" placeholder="Destino" onChange={handleChange} value={form.destino} />
-      <input name="destinatario" placeholder="Destinatario" onChange={handleChange} value={form.destinatario} />
-      <input name="fecha" className="input-fecha" onChange={handleChange} value={form.fecha} type="date" />
-      {/* <input name="estado_inicial" placeholder="Estado Inicial" onChange={handleChange} value={form.estado_inicial} /> */}
+      <div className="form-group">
+        <label htmlFor="origen">Origen</label>
+        <input name="origen" id="origen" placeholder="Origen" onChange={handleChange} value={form.origen} />
+      </div>
+      <div className="form-group">
+        <label htmlFor="destino">Destino</label>
+        <input name="destino" id="destino" placeholder="Destino" onChange={handleChange} value={form.destino} />
+      </div>
+      <div className="form-group">
+        <label htmlFor="destinatario">Destinatario</label>
+        <input name="destinatario" id="destinatario" placeholder="Destinatario" onChange={handleChange} value={form.destinatario} />
+      </div>
+      <div className="form-group">
+        <label htmlFor="fecha">Fecha</label>
+        <input name="fecha" id="fecha" className="input-fecha" onChange={handleChange} value={form.fecha} type="date" />
+      </div>
       <button type="submit">Registrar guía</button>
     </form>
   );

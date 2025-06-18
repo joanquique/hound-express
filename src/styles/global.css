@@ -148,6 +148,16 @@ form button:hover {
   color: #0d6efd;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 13px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
