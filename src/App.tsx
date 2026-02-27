@@ -1,16 +1,22 @@
-import { Header } from './components/Header';
-import RegistroForm from './components/RegistroForm';
-import EstadoPanel from './components/EstadoPanel';
-import ListaGuias from './components/ListaGuias';
-import Historial from './components/Historial';
-import { useState } from 'react';
-import type { Guide } from './types/Guide';
-import { useSelector } from 'react-redux';
-import type { RootState } from './store/store';
+import { Header } from "./components/Header";
+import RegistroForm from "./components/RegistroForm";
+import EstadoPanel from "./components/EstadoPanel";
+import ListaGuias from "./components/ListaGuias";
+import Historial from "./components/Historial";
+import { useState, useEffect } from "react";
+import type { Guide } from "./types/Guide";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState, AppDispatch } from "./store/store";
+import { fetchGuides } from "./store/guidesSlice";
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>();
   const guias = useSelector((state: RootState) => state.guides.guias);
   const [verHistorial, setVerHistorial] = useState<Guide | null>(null);
+
+  useEffect(() => {
+    dispatch(fetchGuides());
+  }, [dispatch]);
 
   return (
     <div className="main-container">
@@ -22,7 +28,7 @@ function App() {
         </section>
 
         <section id="registro">
-          <h1 className='encabezado-guias'>Registro de Guías</h1>
+          <h1 className="encabezado-guias">Registro de Guías</h1>
           <RegistroForm />
         </section>
 
@@ -31,15 +37,14 @@ function App() {
         </section>
 
         <section id="lista">
-          <ListaGuias
-            onVerHistorial={setVerHistorial} 
-          />
+          <ListaGuias onVerHistorial={setVerHistorial} />
         </section>
 
         <section id="historial">
           <Historial guia={verHistorial} />
         </section>
       </main>
+
       <footer>
         <p>© 2025 HoundTrack. Todos los derechos reservados.</p>
       </footer>
