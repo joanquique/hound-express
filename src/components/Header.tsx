@@ -4,7 +4,7 @@ export function Header() {
       <div className="banner" role="banner">
         <img
           className="img-logo"
-          src="./public/logo.png"
+          src="/logo.png"
           alt="Logo de la aplicación HoundTrack"
         />
         <div>
